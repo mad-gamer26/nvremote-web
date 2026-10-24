@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>NVDA Remote Web Privacy</title>
+		<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+		<script type="module" src="./page.ts"></script>
+	</head>
+	<body>
+		<a class="skip-link" href="#main">Skip to main content</a>
+		<header class="site-header">
+			<p class="site-name"><a href="/">NVDA Remote Web</a></p>
+			<nav aria-label="Site">
+				<ul>
+					<li><a href="/">Connect</a></li>
+					<li><a href="/help.html">Help</a></li>
+					<li><a href="/keytest.html">Key tester</a></li>
+					<li><a href="/privacy.html" aria-current="page">Privacy</a></li>
+				</ul>
+			</nav>
+		</header>
+		<main id="main" tabindex="-1" class="prose">
+			<h1>Privacy</h1>
+			<p>NVDA Remote Web is a small, independent service. Here is exactly what happens to your information.</p>
+			<h2>What passes through this service</h2>
+			<p>
+				Browsers can't connect to NVDA Remote servers directly, so a gateway on this server connects for you. Your
+				keystrokes, the remote computer's speech, braille and clipboard text pass through the gateway on their way to
+				and from the NVDA Remote server. The connection from your browser to the gateway, and from the gateway to the
+				NVDA Remote server, are both encrypted. As with any NVDA Remote server, the gateway itself handles this
+				content unencrypted while passing it along.
+			</p>
+			<h2>What is recorded</h2>
+			<ul>
+				<li>The gateway never records keystrokes, speech, braille, clipboard text or keys.</li>
+				<li>
+					It records basic connection events: the time, your IP address, and which NVDA Remote server you
+					connected to. These are used to keep the service running and prevent abuse, and are kept in the server's
+					system logs, which are rotated regularly.
+				</li>
+			</ul>
+			<h2>What is stored on your device</h2>
+			<p>
+				Your settings, the last server you used, servers whose certificates you trust and, only if you choose,
+				your key are saved in this browser's local storage. They never leave your device. Clear them with
+				"Reset all settings" or by clearing this site's data.
+			</p>
+			<p>There are no cookies, no analytics and no third-party scripts.</p>
+		</main>
+		<footer class="site-footer">
+			<p>NVDA Remote Web is not made by NV Access. NVDA is a trademark of NV Access Limited.</p>
+		</footer>
+	</body>
+</html>

@@ -1,0 +1,29 @@
+{
+  "name": "nvremote-web",
+  "version": "0.1.0",
+  "scripts": {
+    "build": "npm run build:gateway && npm run build:web",
+    "build:gateway": "tsc -p tsconfig.gateway.json",
+    "build:web": "vite build",
+    "dev:web": "vite",
+    "typecheck": "tsc -p tsconfig.gateway.json --noEmit && tsc -p tsconfig.web.json --noEmit",
+    "test": "vitest run",
+    "start": "node dist/gateway/gateway/server.js"
+  },
+  "license": "GPL-2.0-or-later",
+  "description": "Accessible web client for NVDA Remote",
+  "dependencies": {
+    "ws": "^8.22.0"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.14.0",
+    "@playwright/test": "^1.64.1",
+    "@types/node": "^22.20.5",
+    "@types/ws": "^8.18.2",
+    "typescript": "^5.9.3",
+    "vite": "^6.4.5",
+    "vitest": "^3.2.7"
+  },
+  "private": true,
+  "type": "module"
+}

@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>NVDA Remote Web Help</title>
+		<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+		<script type="module" src="./page.ts"></script>
+	</head>
+	<body>
+		<a class="skip-link" href="#main">Skip to main content</a>
+		<header class="site-header">
+			<p class="site-name"><a href="/">NVDA Remote Web</a></p>
+			<nav aria-label="Site">
+				<ul>
+					<li><a href="/">Connect</a></li>
+					<li><a href="/help.html" aria-current="page">Help</a></li>
+					<li><a href="/keytest.html">Key tester</a></li>
+					<li><a href="/privacy.html">Privacy</a></li>
+				</ul>
+			</nav>
+		</header>
+		<main id="main" tabindex="-1" class="prose">
+			<h1>Help</h1>
+			<nav aria-labelledby="contents-heading">
+				<h2 id="contents-heading">Contents</h2>
+				<ul>
+					<li><a href="#getting-started">Getting started</a></li>
+					<li><a href="#controlling">Controlling the remote computer</a></li>
+					<li><a href="#chromebooks">Using a Chromebook</a></li>
+					<li><a href="#screen-readers">Using a screen reader on this device</a></li>
+					<li><a href="#phones">Phones and tablets</a></li>
+					<li><a href="#speech">Speech, sounds and braille</a></li>
+					<li><a href="#clipboard">Clipboard and typing text</a></li>
+					<li><a href="#security">Keys and certificates</a></li>
+					<li><a href="#troubleshooting">Troubleshooting</a></li>
+				</ul>
+			</nav>
+
+			<h2 id="getting-started">Getting started</h2>
+			<p>
+				NVDA Remote Web lets you control a Windows computer running the NVDA screen reader. You hear the remote
+				computer's speech and sounds in your browser, and your keyboard controls it, just like NVDA's own Remote
+				Access feature.
+			</p>
+			<ol>
+				<li>
+					On the <a href="/">Connect page</a>, leave Server as nvremote.mad-gamer.com (or enter another NVDA Remote
+					server), and enter a key, or choose Generate key.
+				</li>
+				<li>
+					On the remote computer, open the NVDA menu, then Tools, then Remote Access, then Connect. Set Mode to
+					<strong>Allow this computer to be controlled</strong>, Server to <strong>Use existing</strong>, and enter
+					the same host and key.
+				</li>
+				<li>Choose Connect on this page. You will hear a sound when the remote computer joins.</li>
+			</ol>
+			<p>
+				This page can only control another computer. It can't be controlled itself, because web pages are not allowed
+				to press keys on your device.
+			</p>
+
+			<h2 id="controlling">Controlling the remote computer</h2>
+			<p>
+				Once connected, choose <strong>Start controlling the remote computer</strong>, or press
+				<kbd>Shift</kbd>+<kbd>Escape</kbd>. Every key you press then goes to the remote computer. Press
+				<kbd>Shift</kbd>+<kbd>Escape</kbd> again to stop, and your keys stay on this device. You can change this key
+				under Settings.
+			</p>
+			<p>
+				By default, controlling goes full screen. In Chrome and Edge, full screen lets keys like
+				<kbd>Alt</kbd>+<kbd>Tab</kbd>, <kbd>Escape</kbd> and the Windows or Search key reach the remote computer
+				instead of being used by this device. In other browsers some of those keys stay on this device. In full screen,
+				holding <kbd>Escape</kbd> down for a couple of seconds also leaves full screen and stops controlling.
+			</p>
+			<p>
+				<kbd>Control</kbd>+<kbd>Alt</kbd>+<kbd>Delete</kbd> can never be sent from a keyboard, so use the
+				<strong>Send Control+Alt+Delete</strong> button. It only works if the remote computer allows it (NVDA must
+				be installed, not portable).
+			</p>
+			<p>
+				<strong>The NVDA key:</strong> the remote computer's NVDA key is Insert, or Caps Lock with the laptop layout.
+				If your keyboard has neither, the Search, Windows or Command key can act as the NVDA key. Choose what it sends
+				under Settings, Keyboard.
+			</p>
+			<p>
+				Use the <a href="/keytest.html">key tester</a> to check what each key on your keyboard sends.
+			</p>
+
+			<h2 id="chromebooks">Using a Chromebook</h2>
+			<ul>
+				<li>The Search key acts as the NVDA key by default.</li>
+				<li>
+					The top row of keys (Back, Refresh and so on) is sent as <kbd>F1</kbd> to <kbd>F10</kbd> by default.
+					Turn this off under Settings if you'd rather send the browser and media keys.
+				</li>
+				<li>
+					<strong>ChromeVox users:</strong> ChromeVox uses the Search key for its own commands, and gets those keys
+					before any web page. While controlling, either turn ChromeVox off with
+					<kbd>Control</kbd>+<kbd>Alt</kbd>+<kbd>Z</kbd> and let this page speak, or use ChromeVox's pass-through
+					command (<kbd>Search</kbd>+<kbd>Shift</kbd>+<kbd>Escape</kbd>) before a key you want to send. Remember to
+					turn ChromeVox back on when you stop controlling. Turning on "Also speak this page's messages with the
+					browser voice" in Settings means you still hear connection messages while ChromeVox is off.
+				</li>
+			</ul>
+
+			<h2 id="screen-readers">Using a screen reader on this device</h2>
+			<p>
+				The page works with screen readers, including NVDA, JAWS, Narrator, ChromeVox, VoiceOver and TalkBack. While
+				controlling, the remote control area tells your screen reader to pass keys through (it is an application
+				region), so NVDA and JAWS switch to focus mode automatically.
+			</p>
+			<p>
+				Your own screen reader's commands that use its modifier key, such as NVDA+T on this device, may still be used
+				by your screen reader instead of being sent. Use the On-screen keys, or change "The Search, Windows or Command
+				key sends" so a different key acts as the remote NVDA key.
+			</p>
+			<p>
+				By default the remote computer's speech uses this browser's voice, so it doesn't mix with your screen reader.
+				You can instead send it to your screen reader under Settings, Speech.
+			</p>
+
+			<h2 id="phones">Phones and tablets</h2>
+			<p>
+				Without a keyboard, use <strong>On-screen keys</strong> to press keys and common NVDA commands, and
+				<strong>Type or paste text to send</strong> to type text. A Bluetooth keyboard works like any other keyboard.
+			</p>
+
+			<h2 id="speech">Speech, sounds and braille</h2>
+			<ul>
+				<li>
+					<strong>Speech:</strong> choose the browser's voice (recommended), your own screen reader, or no speech.
+					Everything said is kept in the speech history on the Connect page.
+				</li>
+				<li>
+					<strong>Sounds:</strong> beeps and NVDA's standard sounds play here. Sounds from NVDA add-ons can't be
+					played, because they only exist on the remote computer.
+				</li>
+				<li><strong>Mute remote</strong> silences the remote computer's speech and sounds without disconnecting.</li>
+				<li>
+					<strong>Braille:</strong> turn on "Show the remote computer's braille display" in Settings to see the
+					remote braille as braille characters on the Connect page.
+				</li>
+			</ul>
+
+			<h2 id="clipboard">Clipboard and typing text</h2>
+			<ul>
+				<li>
+					When the remote computer sends its clipboard (NVDA+Control+Shift+C on the remote computer), the text
+					appears on the Connect page, and is copied to this device if the browser allows it.
+				</li>
+				<li>
+					<strong>Send my clipboard</strong> sends this device's clipboard to the remote computer. Your browser may
+					ask permission first.
+				</li>
+				<li>
+					<strong>Type it</strong> types text by pressing keys, and works best with English letters, numbers and
+					punctuation. For other text, use <strong>Send as clipboard</strong>, then press
+					<kbd>Control</kbd>+<kbd>V</kbd> on the remote computer.
+				</li>
+			</ul>
+
+			<h2 id="security">Keys and certificates</h2>
+			<p>
+				The key is like a password: anyone who knows the server and key can join the session. Generate a new key for
+				each session, and don't post it publicly.
+			</p>
+			<p>
+				NVDA Remote servers use encrypted connections. If a server's certificate can't be verified (which is common
+				for servers run by individuals), you're asked whether to trust it, just as NVDA asks. Only trust servers you
+				know. Trusted servers are listed under Settings, where you can forget them.
+			</p>
+
+			<h2 id="troubleshooting">Troubleshooting</h2>
+			<dl>
+				<dt>I hear nothing</dt>
+				<dd>
+					Make sure the remote computer has connected (the status says "Connected to the remote computer"), that
+					Mute remote is off, and try Test voice under Settings. Some browsers need a moment to load voices.
+				</dd>
+				<dt>"The remote computer is not connected yet"</dt>
+				<dd>Check that both computers use exactly the same server, port and key.</dd>
+				<dt>Some keys don't reach the remote computer</dt>
+				<dd>
+					Turn on "Go full screen while controlling", use Chrome or Edge, and check the
+					<a href="/keytest.html">key tester</a>. Your own screen reader may be using the key; see
+					<a href="#screen-readers">Using a screen reader on this device</a>.
+				</dd>
+				<dt>A key seems stuck down on the remote computer</dt>
+				<dd>Press and release that key again while controlling, or stop and start controlling.</dd>
+			</dl>
+		</main>
+		<footer class="site-footer">
+			<p>NVDA Remote Web is not made by NV Access. NVDA is a trademark of NV Access Limited.</p>
+		</footer>
+	</body>
+</html>

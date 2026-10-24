@@ -1,0 +1,42 @@
+# NVDA Remote Web gateway: bridges browser WebSockets to NVDA Remote relay servers.
+# Install: /etc/systemd/system/nvremote-web-gateway.service, then
+#   systemctl daemon-reload && systemctl enable --now nvremote-web-gateway
+# Source: ~/nvremote-web/deploy/nvremote-web-gateway.service
+[Unit]
+Description=NVDA Remote Web gateway
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+DynamicUser=true
+WorkingDirectory=/opt/nvremote-web
+EnvironmentFile=-/etc/nvremote-web.env
+ExecStart=/usr/local/bin/node /opt/nvremote-web/gateway/gateway/server.js
+Restart=on-failure
+RestartSec=2
+
+# Hardening: the gateway keeps nothing on disk and only uses the network.
+# (No MemoryDenyWriteExecute: Node's JIT needs writable executable memory.)
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+PrivateDevices=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectKernelLogs=true
+ProtectControlGroups=true
+ProtectClock=true
+ProtectHostname=true
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX AF_NETLINK
+RestrictNamespaces=true
+RestrictRealtime=true
+LockPersonality=true
+SystemCallArchitectures=native
+CapabilityBoundingSet=
+MemoryMax=512M
+TasksMax=256
+
+[Install]
+WantedBy=multi-user.target

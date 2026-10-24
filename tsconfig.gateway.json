@@ -1,0 +1,11 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "rootDir": "src",
+    "outDir": "dist/gateway",
+    "types": ["node"]
+  },
+  "include": ["src/gateway/**/*.ts", "src/shared/**/*.ts"]
+}

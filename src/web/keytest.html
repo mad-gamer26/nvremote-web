@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Key Tester</title>
+		<meta name="description" content="Check which keys NVDA Remote Web can send from this keyboard." />
+		<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+		<script type="module" src="./keytest.ts"></script>
+	</head>
+	<body>
+		<a class="skip-link" href="#main">Skip to main content</a>
+		<header class="site-header">
+			<p class="site-name"><a href="/">NVDA Remote Web</a></p>
+			<nav aria-label="Site">
+				<ul>
+					<li><a href="/">Connect</a></li>
+					<li><a href="/help.html">Help</a></li>
+					<li><a href="/keytest.html" aria-current="page">Key tester</a></li>
+					<li><a href="/privacy.html">Privacy</a></li>
+				</ul>
+			</nav>
+		</header>
+		<main id="main" tabindex="-1">
+			<h1>Key tester</h1>
+			<p class="intro">
+				Find out what each key on this keyboard would send to the remote computer. Nothing is sent anywhere; this
+				page works without connecting.
+			</p>
+			<p>
+				Uses your current settings for the Search key and Chromebook top row. Change them under Settings on the
+				Connect page.
+			</p>
+			<div class="action-row">
+				<button id="start-test" type="button" class="primary">Start testing keys</button>
+				<button id="start-test-fullscreen" type="button" class="secondary">Start testing in full screen</button>
+			</div>
+			<div id="key-test-area" role="application" tabindex="-1" aria-roledescription="key tester" hidden>
+				<p id="key-test-instructions"></p>
+				<p id="key-test-last" aria-hidden="true"></p>
+			</div>
+			<h2>Keys pressed</h2>
+			<p id="key-log-empty" class="hint">None yet.</p>
+			<ol id="key-log" class="key-log"></ol>
+			<div id="key-announcer"></div>
+		</main>
+		<footer class="site-footer">
+			<p>NVDA Remote Web is not made by NV Access. <a href="/privacy.html">Privacy</a></p>
+		</footer>
+	</body>
+</html>
