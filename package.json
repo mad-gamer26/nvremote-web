@@ -25,5 +25,16 @@
     "vitest": "^3.2.7"
   },
   "private": true,
-  "type": "module"
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mad-gamer26/nvremote-web.git"
+  },
+  "homepage": "https://nvremote.mad-gamer.com",
+  "bugs": {
+    "url": "https://github.com/mad-gamer26/nvremote-web/issues"
+  },
+  "engines": {
+    "node": ">=22"
+  }
 }

@@ -20,7 +20,10 @@ Browser ──WSS──▶ nginx (nvremote.mad-gamer.com) ──▶ gateway (127
   mapping to Windows virtual keys, speech via the Web Speech API or the user's screen reader,
   NVDA's beeps and sounds, clipboard, Control+Alt+Delete, braille, and on-screen keys.
 - `src/shared/protocol.ts` defines the browser and gateway messages.
-- The NVDA Remote protocol itself is documented by NVDA's `source/_remoteClient`.
+- The NVDA Remote protocol itself is documented by NVDA's
+  [`source/_remoteClient`](https://github.com/nvaccess/nvda/tree/master/source/_remoteClient).
+
+NVDA Remote Web is an independent project, not made by or affiliated with NV Access.
 
 ## Development
 
@@ -45,6 +48,32 @@ and `npm run dev:web`; Vite proxies `/ws` to it.
 - nginx: `/etc/nginx/sites-available/nvremote.conf` (wildcard certificate)
 - Logs: `journalctl -u nvremote-web-gateway`
 
+## Self-hosting
+
+To run your own copy under another domain:
+
+1. In `src/web/links.ts`, set `DEFAULT_HOST` to the NVDA Remote server people should connect to by default.
+2. In `/etc/nvremote-web.env` (from `deploy/nvremote-web.env`), set `NVR_ALLOWED_ORIGINS` to your
+   site's address. If you also run an NVDA Remote relay on the same machine, list its names in
+   `NVR_LOCAL_RELAY_HOSTS`; otherwise leave that empty, since connections to the machine's own
+   addresses are blocked.
+3. In `deploy/nginx-nvremote.conf`, change `server_name`, the certificate include and the
+   `wss://` address in the Content-Security-Policy.
+4. Adjust the paths in `deploy/deploy.sh` and the systemd unit if needed, then run the script.
+
+Gateway settings (all optional): `NVR_LISTEN_HOST`, `NVR_LISTEN_PORT`, `NVR_ALLOWED_ORIGINS`
+(`*` allows any, for development only), `NVR_LOCAL_RELAY_HOSTS`, `NVR_LOCAL_RELAY_ADDRESS`,
+`NVR_LOCAL_RELAY_PORT`, `NVR_TRUST_PROXY`, `NVR_MAX_SESSIONS_PER_IP`,
+`NVR_MAX_CONNECTS_PER_MINUTE`, `NVR_MAX_TOTAL_SESSIONS`, `NVR_CONNECT_TIMEOUT_MS`.
+
+## Contributing
+
+Issues and pull requests are welcome. Accessibility is the top priority: changes to the page
+should work with keyboard only and with screen readers, and `npx playwright test` must stay
+free of axe violations. Note that the full-session browser tests expect an NVDA Remote relay
+reachable as `mad-gamer.com`; run `npx playwright test mocked` and `npm test` if you don't
+have one.
+
 ## Licence
 
-GPL-2.0-or-later. The sounds in `src/web/public/waves` come from NVDA (GPL-2.0).
+GPL-2.0-or-later (see [LICENSE](LICENSE)). The sounds in `src/web/public/waves` come from NVDA (GPL-2.0).
