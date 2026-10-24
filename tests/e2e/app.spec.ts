@@ -13,7 +13,7 @@ async function expectNoAxeViolations(page: Page) {
 /** Starts the fake controlled computer on the local relay. */
 function startFollower(key: string): Promise<ChildProcess> {
 	return new Promise((resolve, reject) => {
-		const child = spawn("node", ["tools/fakeFollower.mjs", "nvremote.mad-gamer.com", "6837", key], {
+		const child = spawn("node", ["tools/fakeFollower.mjs", "mad-gamer.com", "6837", key], {
 			stdio: ["ignore", "pipe", "inherit"],
 		});
 		child.stdout!.on("data", (data: Buffer) => {

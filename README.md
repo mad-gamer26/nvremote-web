@@ -13,7 +13,7 @@ Browser ──WSS──▶ nginx (nvremote.mad-gamer.com) ──▶ gateway (127
 
 - `src/gateway/` is a Node WebSocket server. Each WebSocket carries one relay session, always as
   the controlling ("master") side. It only connects to public addresses (or the relay on this
-  machine, NVDARemoteServer on port 6837), verifies certificates like NVDA does (with
+  machine, NVDARemoteServer on port 6837, reached as mad-gamer.com), verifies certificates like NVDA does (with
   fingerprint trust for self-signed servers), only forwards an allowlist of message types,
   rate-limits per IP, and never logs content or keys.
 - `src/web/` is the browser app (plain TypeScript and semantic HTML, built with Vite): key
@@ -30,7 +30,7 @@ npm test                 # unit tests (vitest)
 npm run build            # gateway to dist/gateway, site to dist/web
 npx playwright test      # browser and accessibility tests against a local build
 PW_BASE_URL=https://nvremote.mad-gamer.com npx playwright test   # against the live site
-node tools/fakeFollower.mjs nvremote.mad-gamer.com 6837 <key>    # a fake controlled computer
+node tools/fakeFollower.mjs mad-gamer.com 6837 <key>    # a fake controlled computer
 ```
 
 For live development, run the gateway (`NVR_ALLOWED_ORIGINS='*' npm start` after building)

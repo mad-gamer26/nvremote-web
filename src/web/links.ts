@@ -9,7 +9,7 @@ export interface ConnectionDetails {
 	key: string;
 }
 
-export const DEFAULT_HOST = "nvremote.mad-gamer.com";
+export const DEFAULT_HOST = "mad-gamer.com";
 
 /** Parses "host", "host:port" or "[ipv6]:port". */
 export function parseAddress(address: string): { host: string; port: number } | null {

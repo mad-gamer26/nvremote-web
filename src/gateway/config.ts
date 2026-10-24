@@ -39,7 +39,7 @@ export function loadConfig(): GatewayConfig {
 		listenHost: envString("NVR_LISTEN_HOST", "127.0.0.1"),
 		listenPort: envInt("NVR_LISTEN_PORT", 39870),
 		allowedOrigins: envList("NVR_ALLOWED_ORIGINS", "https://nvremote.mad-gamer.com").filter((o) => o !== "*"),
-		localRelayHosts: envList("NVR_LOCAL_RELAY_HOSTS", "nvremote.mad-gamer.com"),
+		localRelayHosts: envList("NVR_LOCAL_RELAY_HOSTS", "mad-gamer.com,nvremote.mad-gamer.com"),
 		localRelayAddress: envString("NVR_LOCAL_RELAY_ADDRESS", "127.0.0.1"),
 		localRelayPort: envInt("NVR_LOCAL_RELAY_PORT", 6837),
 		trustProxy: envString("NVR_TRUST_PROXY", "true") === "true",

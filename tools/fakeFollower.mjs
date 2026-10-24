@@ -6,7 +6,7 @@
 
 import tls from "node:tls";
 
-const [host = "nvremote.mad-gamer.com", port = "6837", key = "test123", flag] = process.argv.slice(2);
+const [host = "mad-gamer.com", port = "6837", key = "test123", flag] = process.argv.slice(2);
 
 const VK_NAMES = {
 	8: "backspace", 9: "tab", 13: "enter", 16: "shift", 17: "control", 18: "alt", 20: "caps lock",

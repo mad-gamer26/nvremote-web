@@ -34,12 +34,12 @@ describe("links", () => {
 	it("round-trips share links", () => {
 		const link = shareLink("https://nvremote.mad-gamer.com/", { host: "other.org", port: 7000, key: "secret key" });
 		expect(parseShareFragment(new URL(link).hash)).toEqual({ host: "other.org", port: 7000, key: "secret key" });
-		expect(shareLink("https://x/", { host: "nvremote.mad-gamer.com", port: 6837, key: "k" })).toBe("https://x/#key=k");
+		expect(shareLink("https://x/", { host: "mad-gamer.com", port: 6837, key: "k" })).toBe("https://x/#key=k");
 	});
 
 	it("builds NVDA links for the controlled computer", () => {
-		expect(nvdaRemoteLink({ host: "nvremote.mad-gamer.com", port: 6837, key: "123" })).toBe(
-			"nvdaremote://nvremote.mad-gamer.com?key=123&mode=slave",
+		expect(nvdaRemoteLink({ host: "mad-gamer.com", port: 6837, key: "123" })).toBe(
+			"nvdaremote://mad-gamer.com?key=123&mode=slave",
 		);
 	});
 });
